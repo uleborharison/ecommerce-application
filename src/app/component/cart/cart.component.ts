@@ -1,15 +1,29 @@
+import { CartService } from './../../service/cart.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.css']
+  styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
-
-  constructor() { }
+  public products: any = [];
+  public grandTotal: number = 0;
+  constructor(private cartservice: CartService) {}
 
   ngOnInit(): void {
+    this.cartservice.getProduct().subscribe((res) => {
+      this.products = res;
+      this.grandTotal = this.cartservice.getTotalprice();
+    });
+  }
+  removeItem(item: any) {
+    if (confirm('Are you sure to delete'))
+      this.cartservice.removeCartItem(item);
+    alert('Item deeted successfully');
   }
 
+  emptycart() {
+    this.cartservice.removeAllCart();
+  }
 }

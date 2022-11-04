@@ -6,6 +6,26 @@ text-align: center;
 transform:translate(-50%, -50%);
 }
 
-h4,h5{
+h4,h6{
   font-weight: 500;
+}
+.card-table{
+  background: goldenrod;
+  word-wrap: break-word;
+  min-width: none;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-repeat: space;
+  background-clip: border-box;
+  border-radius: .25rem;
+  border: 1px solid rgba(0,0,0,2);
+}
+
+.center .btn{
+  font-size: 14 !important;
+  margin-top: 20px !important;
+  font-weight: 400;
+  padding: 12px 72px;
+  border-radius: 3px
 }
